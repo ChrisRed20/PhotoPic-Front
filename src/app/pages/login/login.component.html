@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="container border" style="height: 100vh;">
+    <div class="container justify-content-center text-center">
+        <div class="col p-5">
+            <form [formGroup]="loginForm" (submit)="onSubmit()">
+                <div>
+                    <h3>Inicio de sesión</h3>
+                    <p>Introduce tus credenciales para comenzar</p>
+                </div>
+                <div>
+                    <input type="text" class="form-control" placeholder="Correo electronico" id="email" formControlName="email">
+                    <input type="password" class="form-control" placeholder="Contraseña" id="password" formControlName="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            </form>
+        </div>
+    </div>
+</div>
