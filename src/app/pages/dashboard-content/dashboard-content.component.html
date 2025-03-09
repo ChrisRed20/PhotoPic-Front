@@ -1,0 +1,404 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Dashboard</h1>
+    <div class="d-flex align-items-center">
+        <form class="search-form me-3">
+            <i class="fas fa-search"></i>
+            <input type="text" class="form-control search-input" placeholder="Buscar...">
+        </form>
+        <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+                    style="width: 40px; height: 40px;">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="ms-2">Carlos Rodríguez</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser">
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li><a class="dropdown-item" href="#">Ajustes</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Row -->
+<div class="row g-4 mb-4 p-3">
+    <div class="col-12 col-sm-6 col-xl-3">
+        <div class="stat-card card h-100 p-3">
+            <div class="card-body p-0 d-flex align-items-center">
+                <div class="stat-icon bg-primary-subtle text-primary">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div>
+                    <h6 class="card-subtitle mb-1 text-muted">Total Galerías</h6>
+                    <h2 class="card-title mb-0">24</h2>
+                    <small class="text-success">
+                        <i class="fas fa-arrow-up me-1"></i>12% este mes
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <div class="stat-card card h-100 p-3">
+            <div class="card-body p-0 d-flex align-items-center">
+                <div class="stat-icon bg-success-subtle text-success">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <h6 class="card-subtitle mb-1 text-muted">Total Clientes</h6>
+                    <h2 class="card-title mb-0">156</h2>
+                    <small class="text-success">
+                        <i class="fas fa-arrow-up me-1"></i>8% este mes
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <div class="stat-card card h-100 p-3">
+            <div class="card-body p-0 d-flex align-items-center">
+                <div class="stat-icon bg-warning-subtle text-warning">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <div>
+                    <h6 class="card-subtitle mb-1 text-muted">Fotos Compartidas</h6>
+                    <h2 class="card-title mb-0">3,854</h2>
+                    <small class="text-success">
+                        <i class="fas fa-arrow-up me-1"></i>24% este mes
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <div class="stat-card card h-100 p-3">
+            <div class="card-body p-0 d-flex align-items-center">
+                <div class="stat-icon bg-danger-subtle text-danger">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div>
+                    <h6 class="card-subtitle mb-1 text-muted">Almacenamiento</h6>
+                    <h2 class="card-title mb-0">68%</h2>
+                    <small class="text-danger">
+                        <i class="fas fa-arrow-up me-1"></i>5% este mes
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Galleries -->
+<div class="d-flex justify-content-between align-items-center mb-4 p-3">
+    <h3>Galerías Recientes</h3>
+    <button class="btn btn-primary">
+        <i class="fas fa-plus me-2"></i>Nueva Galería
+    </button>
+</div>
+
+<div class="row g-4 mb-5 p-3">
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="gallery-card card h-100">
+            <div class="gallery-img-container">
+                <img src="/api/placeholder/400/200" alt="Imagen de galería" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="d-flex">
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Boda Martínez-García</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="text-muted small">48 fotos</span>
+                    <span class="text-muted small">5 Mar, 2025</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="gallery-card card h-100">
+            <div class="gallery-img-container">
+                <img src="/api/placeholder/400/200" alt="Imagen de galería" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="d-flex">
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Sesión 15 Años Lucía</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="text-muted small">32 fotos</span>
+                    <span class="text-muted small">28 Feb, 2025</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="gallery-card card h-100">
+            <div class="gallery-img-container">
+                <img src="/api/placeholder/400/200" alt="Imagen de galería" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="d-flex">
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Corporativo Nexus</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="text-muted small">24 fotos</span>
+                    <span class="text-muted small">20 Feb, 2025</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="gallery-card card h-100">
+            <div class="gallery-img-container">
+                <img src="/api/placeholder/400/200" alt="Imagen de galería" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="d-flex">
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-light action-btn">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Recién Nacido Familia López</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="text-muted small">36 fotos</span>
+                    <span class="text-muted small">15 Feb, 2025</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Clients -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3>Clientes Recientes</h3>
+    <button class="btn btn-primary">
+        <i class="fas fa-plus me-2"></i>Nuevo Cliente
+    </button>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Email</th>
+                        <th>Galerías</th>
+                        <th>Última Actividad</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="client-avatar me-3">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>Ana María Gómez</span>
+                            </div>
+                        </td>
+                        <td>ana.gomez.com</td>
+                        <td>2</td>
+                        <td>Hace 2 días</td>
+                        <td><span class="badge badge-active rounded-pill">Activo</span></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Acciones
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a class="dropdown-item" href="#">Ver Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                                    <li><a class="dropdown-item" href="#">Enviar Email</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="client-avatar me-3">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>Miguel Ángel Torres</span>
+                            </div>
+                        </td>
+                        <td>miguel.torres.com</td>
+                        <td>1</td>
+                        <td>Hace 3 días</td>
+                        <td><span class="badge badge-active rounded-pill">Activo</span></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Acciones
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <li><a class="dropdown-item" href="#">Ver Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                                    <li><a class="dropdown-item" href="#">Enviar Email</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="client-avatar me-3">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <span>Empresa Nexus S.A.</span>
+                            </div>
+                        </td>
+                        <td>contacto.com</td>
+                        <td>3</td>
+                        <td>Hace 5 días</td>
+                        <td><span class="badge badge-active rounded-pill">Activo</span></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Acciones
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                    <li><a class="dropdown-item" href="#">Ver Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                                    <li><a class="dropdown-item" href="#">Enviar Email</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="client-avatar me-3">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>Roberto Hernández</span>
+                            </div>
+                        </td>
+                        <td>r.hernandez.com</td>
+                        <td>1</td>
+                        <td>Hace 1 semana</td>
+                        <td><span class="badge badge-pending rounded-pill">Pendiente</span></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenu4" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Acciones
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                    <li><a class="dropdown-item" href="#">Ver Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                                    <li><a class="dropdown-item" href="#">Enviar Email</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="client-avatar me-3">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>Laura Martínez</span>
+                            </div>
+                        </td>
+                        <td>laura.m.com</td>
+                        <td>0</td>
+                        <td>Hace 2 semanas</td>
+                        <td><span class="badge badge-pending rounded-pill">Pendiente</span></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenu5" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Acciones
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                    <li><a class="dropdown-item" href="#">Ver Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                                    <li><a class="dropdown-item" href="#">Enviar Email</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

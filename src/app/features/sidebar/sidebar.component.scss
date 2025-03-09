@@ -1,0 +1,44 @@
+.sidebar {
+    min-height: 100vh;
+    position: fixed;
+    padding-top: 20px;
+    z-index: 100;
+}
+
+.logo {
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        min-height: auto;
+    }
+
+    .content-wrapper {
+        margin-left: 0;
+    }
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+}
+
+.nav-link i {
+    width: 24px;
+}
