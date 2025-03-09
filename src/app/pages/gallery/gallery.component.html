@@ -1,1 +1,220 @@
-<p>gallery works!</p>
+<!-- galeria.component.html -->
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+      <div class="col">
+        <h1 class="display-5">Galerías de Clientes</h1>
+        <p class="text-muted">Visualiza y administra las galerías ordenadas por cliente</p>
+      </div>
+      <div class="col-auto d-flex align-items-center">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Buscar cliente..." [(ngModel)]="searchTerm">
+          <button class="btn btn-outline-secondary" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="dropdown ms-2">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            Ordenar por
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" (click)="sortBy('name')">Nombre</a></li>
+            <li><a class="dropdown-item" href="#" (click)="sortBy('date')">Fecha</a></li>
+            <li><a class="dropdown-item" href="#" (click)="sortBy('count')">Cantidad de fotos</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Loader mientras se cargan los datos -->
+    <div *ngIf="loading" class="text-center my-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+      <p class="mt-2">Cargando galerías...</p>
+    </div>
+  
+    <!-- Contenido principal: Acordeón de clientes con galerías -->
+    <div *ngIf="!loading" class="accordion" id="clientGalleriesAccordion">
+      <div class="accordion-item" *ngFor="let client of clients; let i = index">
+        <h2 class="accordion-header" [id]="'heading' + i">
+          <button class="accordion-button" type="button" [class.collapsed]="i !== 0" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" [attr.aria-expanded]="i === 0" [attr.aria-controls]="'collapse' + i">
+            <div class="d-flex justify-content-between w-100 align-items-center pe-3">
+              <div>
+                <span class="fw-bold">{{ client.name }}</span>
+                <span class="badge bg-primary rounded-pill ms-2">{{ client.galleryCount }} galerías</span>
+              </div>
+              <small class="text-muted d-none d-md-block">Última actualización: {{ client.lastUpdate | date }}</small>
+            </div>
+          </button>
+        </h2>
+        <div [id]="'collapse' + i" class="accordion-collapse collapse" [class.show]="i === 0" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#clientGalleriesAccordion">
+          <div class="accordion-body p-4">
+            <!-- Pestañas para diferentes galerías del cliente -->
+            <ul class="nav nav-tabs mb-3" [id]="'clientTabs' + i" role="tablist">
+              <li class="nav-item" role="presentation" *ngFor="let gallery of client.galleries; let j = index">
+                <button class="nav-link" [class.active]="j === 0" [id]="'tab-' + i + '-' + j" data-bs-toggle="tab" 
+                        [attr.data-bs-target]="'#gallery-' + i + '-' + j" type="button" role="tab" 
+                        [attr.aria-controls]="'gallery-' + i + '-' + j" [attr.aria-selected]="j === 0">
+                  {{ gallery.name }}
+                  <span class="badge bg-secondary rounded-pill ms-1">{{ gallery.photoCount }}</span>
+                </button>
+              </li>
+              <li class="nav-item ms-auto" role="presentation">
+                <button class="nav-link text-success" data-bs-toggle="modal" data-bs-target="#newGalleryModal">
+                  <i class="bi bi-plus-circle me-1"></i> Nueva Galería
+                </button>
+              </li>
+            </ul>
+            
+            <!-- Contenido de las galerías -->
+            <div class="tab-content">
+              <div *ngFor="let gallery of client.galleries; let j = index" class="tab-pane fade" 
+                  [class.show]="j === 0" [class.active]="j === 0" [id]="'gallery-' + i + '-' + j" 
+                  role="tabpanel" [attr.aria-labelledby]="'tab-' + i + '-' + j">
+                
+                <!-- Opciones de la galería -->
+                <div class="d-flex justify-content-between mb-3">
+                  <div>
+                    <h4>{{ gallery.name }}</h4>
+                    <p class="text-muted mb-0">Fecha: {{ gallery.date | date }} | {{ gallery.photoCount }} fotos</p>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-outline-primary">
+                      <i class="bi bi-share"></i> Compartir
+                    </button>
+                    <button type="button" class="btn btn-outline-success">
+                      <i class="bi bi-cloud-upload"></i> Subir Fotos
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                      Más
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i> Editar</a></li>
+                      <li><a class="dropdown-item" href="#"><i class="bi bi-download me-2"></i> Descargar</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i> Eliminar</a></li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Grid de fotos -->
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                  <div class="col" *ngFor="let photo of gallery.photos">
+                    <div class="card h-100">
+                      <img [src]="photo.url" class="card-img-top" alt="{{ photo.title }}">
+                      <div class="card-body">
+                        <h5 class="card-title text-truncate">{{ photo.title }}</h5>
+                        <p class="card-text small text-muted">{{ photo.date | date:'short' }}</p>
+                      </div>
+                      <div class="card-footer bg-white border-top-0">
+                        <div class="btn-group btn-group-sm w-100">
+                          <button type="button" class="btn btn-outline-secondary">
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button type="button" class="btn btn-outline-secondary">
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button type="button" class="btn btn-outline-secondary">
+                            <i class="bi bi-download"></i>
+                          </button>
+                          <button type="button" class="btn btn-outline-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Tarjeta para agregar fotos -->
+                  <div class="col">
+                    <div class="card h-100 border-dashed">
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center text-center p-4">
+                        <i class="bi bi-plus-circle display-4 text-muted mb-2"></i>
+                        <h5>Añadir fotos</h5>
+                        <p class="text-muted small">Haz clic para subir más imágenes a esta galería</p>
+                        <button class="btn btn-primary mt-2">
+                          <i class="bi bi-upload me-1"></i> Subir
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Paginación -->
+                <nav aria-label="Navegación de páginas" class="mt-4">
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Siguiente</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mensaje cuando no hay clientes -->
+    <div *ngIf="!loading && clients.length === 0" class="text-center my-5 py-5">
+      <i class="bi bi-images display-1 text-muted"></i>
+      <h2 class="mt-3">No hay galerías disponibles</h2>
+      <p class="text-muted">Comienza agregando un cliente y crea tu primera galería</p>
+      <button class="btn btn-primary mt-2">
+        <i class="bi bi-plus-circle me-1"></i> Agregar Cliente
+      </button>
+    </div>
+  </div>
+  
+  <!-- Modal para crear nueva galería -->
+  <div class="modal fade" id="newGalleryModal" tabindex="-1" aria-labelledby="newGalleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newGalleryModalLabel">Nueva Galería</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="galleryName" class="form-label">Nombre de la galería</label>
+              <input type="text" class="form-control" id="galleryName">
+            </div>
+            <div class="mb-3">
+              <label for="galleryDate" class="form-label">Fecha</label>
+              <input type="date" class="form-control" id="galleryDate">
+            </div>
+            <div class="mb-3">
+              <label for="galleryDescription" class="form-label">Descripción</label>
+              <textarea class="form-control" id="galleryDescription" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="galleryVisibility" class="form-label">Visibilidad</label>
+              <select class="form-select" id="galleryVisibility">
+                <option value="private">Privada (solo el cliente)</option>
+                <option value="protected">Protegida (con contraseña)</option>
+                <option value="public">Pública</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Crear Galería</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Estilos mínimos personalizados (solo lo esencial que Bootstrap no cubre) -->
+  <style>
+  .border-dashed {
+    border-style: dashed !important;
+  }
+  </style>
