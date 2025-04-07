@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private url = 'http://localhost:4000/api/auth'
+  private url = 'http://localhost:4000/api/auth/photographer/signin';
   
   constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.url}/signin`, {email, password});
+    return this.http.post<any>(`${this.url}`, {email, password});
   };
 
   isLoggedIn(): boolean {
