@@ -1,27 +1,62 @@
-# Front
+¡Claro! Aquí tienes una versión más corta y en inglés del `README.md`, ideal para tu repositorio público:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.1.
+---
 
-## Development server
+```markdown
+# 📸 PhotoPic - Progressive Web App
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**PhotoPic** is a PWA built with Angular and Node.js that allows photographers to securely log in, manage their profiles, and store data both online and offline.
 
-## Code scaffolding
+## 🚀 Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 🔐 Google Login via Firebase (OAuth 2.0)
+- 🔒 Tokens encrypted with JWE (JSON Web Encryption)
+- 🗂️ Local data stored in IndexedDB with AES encryption
+- ⚙️ Standalone Angular architecture with lazy loading
+- ⚡ Service Worker + Offline support (PWA)
+- 🧪 E2E testing with Cypress + Load testing with k6
+- 🌍 Deployed via Firebase Hosting
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠️ Tech Stack
 
-## Running unit tests
+- **Frontend:** Angular Standalone, Firebase Auth, IndexedDB, CryptoJS
+- **Backend:** Node.js, Express, MongoDB, JWT, JWE
+- **PWA:** Angular Service Worker + Manifest
+- **Testing:** Cypress, k6, OWASP ZAP
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 📦 Run the Project
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Frontend
 
-## Further help
+```bash
+npm install
+ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Backend
+
+```bash
+npm install
+node index.js
+```
+
+---
+
+## 🧪 Testing
+
+- Run E2E tests with `npx cypress open`
+- Run load tests with `k6 run load-test.js`
+
+---
+
+## 🌐 Live App
+
+[PhotoPic - WebApp](https://photopic-3312f.web.app)
+
+PWA features enabled. Installable and works offline.
+
+```
