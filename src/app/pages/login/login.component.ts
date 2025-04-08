@@ -8,8 +8,8 @@ import {
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
-import { Auth } from '@angular/fire/auth';
-import { browserPopupRedirectResolver, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { Auth, signInWithPopup, GoogleAuthProvider, browserPopupRedirectResolver } from '@angular/fire/auth';
+import {  } from 'firebase/auth';
 import { SecureStorageService } from '../../core/secure-storage.service';
 
 @Component({
@@ -40,15 +40,28 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+      // this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+      //   next: (res) => {
+      //     console.log(res);
+      //     localStorage.setItem('token', res.token)
+      //     this.router.navigate(['/dashboard']);
+      //   },
+      //   error: (err) => {
+      //     console.log('Inicio de sesion fallido');
+      //     alert('Acceso invalido: ' + err.error.msg);
+      //   }
+      // })
+      this.authService.loginWithEmailAndPassword(this.loginForm.value.email, this.loginForm.value.password).subscribe({
         next: (res) => {
           console.log(res);
-          localStorage.setItem('token', res.token)
+          this.secureStorage.setItem('user', res.user);
+          this.secureStorage.setItem('token', res.token);
+          localStorage.setItem('token', res._tokenResponse.idToken)
           this.router.navigate(['/dashboard']);
         },
         error: (err) => {
-          console.log('Inicio de sesion fallido');
-          alert('Acceso invalido: ' + err.error.msg);
+          console.log('Inicio de sesion fallido: ' + err);
+          alert("Credenciales invalidas. Intenta nuevamente.");
         }
       })
     } else {
@@ -58,11 +71,13 @@ export class LoginComponent {
 
   loginWithGoogle() {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(this.auth, provider, browserPopupRedirectResolver)
+    signInWithPopup(this.auth, provider)
       .then((result) => {
         const user = result.user;
         this.secureStorage.setItem('user', user);
-        console.log('Usuario logueado con Google:', user);
+        localStorage.setItem('token', user.refreshToken);
+        this.secureStorage.setItem('token', user.refreshToken);
+        // console.log('Usuario logueado con Google:', user);
         this.router.navigate(['/dashboard']);
       })
       .catch(error => {

@@ -1,9 +1,9 @@
 <div class="d-flex justify-content-center align-items-center text-center" style="height: 100vh;">
     <div class="card p-5" style="width: 400px;">
-        <form [formGroup]="loginForm" (submit)="onSubmit()">
+        <form [formGroup]="signupForm" (submit)="onSubmit()">
             <div>
-                <h3>Inicio de sesión</h3>
-                <p>Introduce tus credenciales para comenzar</p>
+                <h3>Registro</h3>
+                <p>Introduce los siguientes datos para el registro</p>
             </div>
             <div>
                 <input type="text" class="form-control mb-3" placeholder="Correo electronico" id="email"
@@ -12,13 +12,10 @@
                     formControlName="password">
             </div>
             <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
-            <div class="mt-3">
-                <p>¿No tienes una cuenta? <a href="/signup">Regístrate aquí</a></p>
-            </div>
         </form>
-        <button (click)="loginWithGoogle()" class="google-btn">
+        <button (click)="signUpWithGoogle()" class="google-btn">
             <img src="https://img.icons8.com/color/16/000000/google-logo.png" />
-            Iniciar sesión con Google
+            Registro con Google
         </button>
     </div>
 </div>

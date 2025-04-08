@@ -5,6 +5,7 @@ export const routes: Routes = [
     { path: '', loadComponent: () => import('./pages/index/index.component').then(m => m.IndexComponent), pathMatch: 'full' },
     { path: 'code', loadComponent: () => import('./pages/code-app/code-app.component').then(m => m.CodeAppComponent), pathMatch: 'full' },
     { path: 'login', loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent), pathMatch: 'full' },
+    { path: 'signup', loadComponent: () => import('./pages/signup/signup.component').then(m => m.SignupComponent), pathMatch: 'full' },
     {
         path: 'dashboard',
         loadComponent: () =>
