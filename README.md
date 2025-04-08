@@ -34,17 +34,14 @@ ng serve
 
 ### Backend
 
-```bash
-npm install
-node index.js
-```
+[PhotoPic-Backend](https://github.com/ChrisRed20/PhotoPic-Back)
 
 ---
 
 ## 🧪 Testing
 
-- Run E2E tests with `npx cypress open`
-- Run load tests with `k6 run load-test.js`
+- Run E2E tests in the frontEnd with `npx cypress open`
+- Run load tests in the backEnd with `k6 run load-test.js`
 
 ---
 
